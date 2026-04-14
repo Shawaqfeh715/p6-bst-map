@@ -333,7 +333,12 @@ private:
   // NOTE:    This function must run in constant time.
   //          No iteration or recursion is allowed.
   static bool empty_impl(const Node *node) {
-    assert(false);
+         if (node==nullptr)
+         {
+          return true;
+         }
+         return false;
+         
   }
 
   // EFFECTS: Returns the size of the tree rooted at 'node', which is the
@@ -341,7 +346,12 @@ private:
   //          tree is 0.
   // NOTE:    This function must be tree recursive.
   static int size_impl(const Node *node) {
-    assert(false);
+         if (node==nullptr)
+         {
+          return 0;
+         }
+         return 1+size_impl(node->left)+size_impl(node->right);
+         
   }
 
   // EFFECTS: Returns the height of the tree rooted at 'node', which is the
@@ -349,7 +359,11 @@ private:
   //          The height of an empty tree is 0.
   // NOTE:    This function must be tree recursive.
   static int height_impl(const Node *node) {
-    assert(false);
+            if (node==nullptr)
+            {
+              return 0;
+            }
+            return 1+max(height_impl(node->left),height_impl(node->right));
   }
 
   // EFFECTS: Creates and returns a pointer to the root of a new node structure
@@ -357,7 +371,7 @@ private:
   //          tree rooted at 'node'.
   // NOTE:    This function must be tree recursive.
   static Node *copy_nodes_impl(Node *node) {
-    assert(false);
+         
   }
 
   // EFFECTS: Frees the memory for all nodes used in the tree rooted at 'node'.
@@ -438,7 +452,11 @@ private:
   //       See https://en.wikipedia.org/wiki/Tree_traversal#In-order
   //       for the definition of a in-order traversal.
   static void traverse_inorder_impl(const Node *node, std::ostream &os) {
-    assert(false);
+         if (node==nullptr)
+         {
+          return;
+         }
+         
   }
 
   // EFFECTS : Traverses the tree rooted at 'node' using a pre-order traversal,
