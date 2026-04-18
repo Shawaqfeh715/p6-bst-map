@@ -577,7 +577,7 @@ private:
          {
            return min_greater_than_impl(node->right,val,less);
          }else{
-          Node *left_candidate ==min_greater_than_impl(node->left,val,less);
+          Node *left_candidate =min_greater_than_impl(node->left,val,less);
          }
          
          if (left_candidate!=nullptr)
