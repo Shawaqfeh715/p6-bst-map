@@ -18,6 +18,7 @@
 #include <cassert>  //assert
 #include <iostream> //ostream
 #include <functional> //less
+#include<algorithm>
 
 // You may add aditional libraries here if needed. You may use any
 // part of the STL except for containers.
@@ -359,7 +360,7 @@ private:
             {
               return 0;
             }
-            return 1+max(height_impl(node->left),height_impl(node->right));
+            return 1+std::max(height_impl(node->left),height_impl(node->right));
   }
 
   // EFFECTS: Creates and returns a pointer to the root of a new node structure
@@ -532,7 +533,7 @@ private:
           return;
          }
          traverse_inorder_impl(node->left,os);
-         os<,node->datum<<" ";
+         os<<node->datum<<" ";
          traverse_inorder_impl(node->right,os);
          
   }
@@ -576,7 +577,7 @@ private:
          {
            return min_greater_than_impl(node->right,val,less);
          }else{
-          Node *left_candidate !=min_greater_than_impl(node->left,val,less);
+          Node *left_candidate ==min_greater_than_impl(node->left,val,less);
          }
          
          if (left_candidate!=nullptr)
