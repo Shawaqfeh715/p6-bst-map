@@ -575,17 +575,17 @@ private:
 
          if (!less(val,node->datum))
          {
-           return min_greater_than_impl(node->right,val,less);
-         }else{
-          Node *left_candidate =min_greater_than_impl(node->left,val,less);
+          return min_greater_than_impl(node->right,val,less);
          }
-         
+
+         Node *left_candidate=min_greater_than_impl(node->left,val,less);
          if (left_candidate!=nullptr)
          {
           return left_candidate;
          }else{
           return node;
          }
+         
          
   }
 
