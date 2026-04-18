@@ -367,13 +367,15 @@ private:
   //          with the same elements and EXACTLY the same structure as the
   //          tree rooted at 'node'.
   // NOTE:    This function must be tree recursive.
-  static Node *copy_nodes_impl(Node *node) {
+  static Node *copy_nodes_impl(const Node *node) {
          if (node==nullptr)
          {
           return nullptr;
          }
 
-         return new Node(node->datum,copy_nodes_impl(node->left),copy_nodes_impl(node->right));
+         return new Node(node->datum,
+          copy_nodes_impl(node->left)
+         ,copy_nodes_impl(node->right));
          
   }
 
@@ -442,7 +444,7 @@ private:
               if (less(item,node->datum))
               {
                 node->left=insert_impl(node->left,item,less);
-              }else{
+              }else if{
                 node->right=insert_impl(node->right,item,less);
               }
               return node;
@@ -515,7 +517,8 @@ private:
               }
              }
              
-        return check_sorting_invariant_impl(node->left,less)&& check_sorting_invariant_impl(node->right,less); 
+        return check_sorting_invariant_impl(node->left,less)&& 
+        check_sorting_invariant_impl(node->right,less); 
              
   }
 
