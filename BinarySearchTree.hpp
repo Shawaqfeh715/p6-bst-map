@@ -444,7 +444,7 @@ private:
               if (less(item,node->datum))
               {
                 node->left=insert_impl(node->left,item,less);
-              }else if{
+              }else{
                 node->right=insert_impl(node->right,item,less);
               }
               return node;
