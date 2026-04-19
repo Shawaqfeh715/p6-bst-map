@@ -233,10 +233,9 @@ TEST(test_ostream_operator) {
 TEST(test_end_dereference_not_allowed) {
     BinarySearchTree<int> tree;
     tree.insert(1);
-    auto it = tree.end();
-    auto it2 = tree.begin();
-    ++it2;
-    ASSERT_TRUE(it2 == tree.end());
+    auto it = tree.begin();
+    ++it;
+    ASSERT_TRUE(it == tree.end());
 }
 
 TEST(test_copy_deepness) {
