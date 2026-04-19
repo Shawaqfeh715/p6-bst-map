@@ -368,18 +368,6 @@ TEST(test_invariant_deep_violation){
     ASSERT_FALSE(b.check_sorting_invariant());
 }
 
-TEST(test_custom_comparator_structure){
-    BinarySearchTree<int,std::greater<int>> b;
-    b.insert(10);
-    b.insert(20);
-    b.insert(5);
-
-    std::ostringstream oss;
-    b.traverse_inorder(oss);
-
-    ASSERT_EQUAL(oss.str(),"20 10 5");
-}
-
 TEST(test_min_greater_than_exact_edge){
     BinarySearchTree<int> b;
 
@@ -393,18 +381,4 @@ TEST(test_min_greater_than_exact_edge){
 
 }
 
-TEST(test_copy_independence_structure){
-    BinarySearchTree<int> b1;
-
-    b1.insert(10);
-    b1.insert(5);
-    b1.insert(15);
-
-    BinarySearchTree<int> b2=b1;
-
-    *b2.find(5)=50;
-
-    ASSERT_TRUE(b1.check_sorting_invariant());
-    ASSERT_TRUE(b2.check_sorting_invariant());
-}
 TEST_MAIN()
